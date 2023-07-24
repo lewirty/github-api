@@ -1,12 +1,13 @@
 import { getUser } from './services/user.js';
 import { getRepos } from './services/repos.js';
+import { getUserFollowers, getUserFollowing } from './services/follow.js';
 import { user } from './objects/user.js';
 import { screen } from './objects/screen.js';
 
 function validateEmptyInput(userName) {
     if(userName.length === 0) {
-        alert('Preencha o campo com o nome do usuário do GitHub')
-        return true
+        alert('Preencha o campo com o nome do usuário do GitHub');
+        return true;
     }
 }
 
@@ -34,7 +35,7 @@ async function getUserData(userName) {
     if(userResponse.message === "Not Found") {
         screen.renderNotFound();
         return;
-    }
+    };
 
     user.setInfo(userResponse);
     user.setRepos(reposResponse);
