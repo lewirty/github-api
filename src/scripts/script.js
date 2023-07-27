@@ -1,6 +1,6 @@
 import { getUser } from './services/user.js';
 import { getRepos } from './services/repos.js';
-import { getUserFollowers, getUserFollowing } from './services/follow.js';
+import { getEvents } from './services/events.js';
 import { user } from './objects/user.js';
 import { screen } from './objects/screen.js';
 
@@ -31,6 +31,7 @@ document.querySelector("#input-search").addEventListener('keyup', (e) => {
 async function getUserData(userName) {
     const userResponse = await getUser(userName);
     const reposResponse = await getRepos(userName);
+    const eventsResponse = await getEvents(userName);
 
     if(userResponse.message === "Not Found") {
         screen.renderNotFound();
@@ -39,6 +40,9 @@ async function getUserData(userName) {
 
     user.setInfo(userResponse);
     user.setRepos(reposResponse);
+    console.log(user.repositories)
+    user.setEvents(eventsResponse);
+    console.log(user.events)
 
     screen.renderUser(user);
 };

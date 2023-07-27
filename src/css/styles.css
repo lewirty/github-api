@@ -149,6 +149,37 @@ main {
   color: #fff
 }
 
+.container .profile-data .repositories ul li .stats{
+  display: flex;
+  flex-direction: row;
+}
+
+.container .profile-data .repositories ul li .stats p{
+  width: 27px;
+  font-size: 11px;
+  color: #fff;
+  padding: 2px;
+  margin: 2px;
+  background-color: #6A5ACF;
+  border-radius: 5px;
+}
+
+.container .profile-data .repositories ul li .stats p.linguagem{
+  width: 60px;
+}
+
+.container .profile-data .events.section{
+  padding: 0;
+}
+
+.container .profile-data .events.section h2{
+  padding-bottom: 20px;
+}
+
+.container .profile-data .events.section b{
+  font-weight: 700;
+}
+
 .container .profile-data.hide{
   display: none;
 }
