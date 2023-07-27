@@ -5,7 +5,7 @@ const screen = {
        `<img src="${user.avatarUrl}" alt="Foto de perfil do usuário">
         <div class="data">
             <h1>${user.name ?? 'Não possui nome cadastrado 🤷‍♂️'}</h1>
-            <p>${user.followers} seguidores, segue ${user.following} pessoas</p>
+            <p>👥${user.followers} seguidores, 👤seguindo ${user.following}</p>
             <p>${user.bio ?? 'Não possui biografia'}</p>
         </div>`;
 
@@ -37,12 +37,12 @@ const screen = {
 
         let eventsItems = '';
         user.events.forEach(function(event) { 
-            let commitMessage = event.payload.commits[1].message;
+            let commitMessage = event.payload.commits && event.payload.commits[0] && event.payload.commits[0].message;
 
-            if(commitMessage > 0) {
+            if(event.type == "PushEvent") {
                 commitMessage = `${commitMessage}`
             } else {
-                commitMessage = "Sem mensagens registradas"
+                commitMessage = "<i>Sem mensagens registradas</i>"
             }
 
             eventsItems += 

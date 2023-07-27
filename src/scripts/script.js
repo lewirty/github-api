@@ -40,9 +40,7 @@ async function getUserData(userName) {
 
     user.setInfo(userResponse);
     user.setRepos(reposResponse);
-    console.log(user.repositories)
     user.setEvents(eventsResponse);
-    console.log(user.events)
 
     screen.renderUser(user);
 };
