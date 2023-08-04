@@ -18,11 +18,11 @@ const screen = {
             }
 
             repositoriesItems += 
-           `<li><a href="${repo.html_url}" target="_blank">${repo.name} <br> 
+           `<li><a href="${repo.html_url}" target="_blank">${repo.name ?? "Sem nome definido"} <br> 
             <span class="stats">
-                <p>🍴${repo.forks}</p>
-                <p>⭐${repo.stargazers_count}</p>
-                <p>👀${repo.watchers_count}</p>
+                <p>🍴${repo.forks ?? "NaN"}</p>
+                <p>⭐${repo.stargazers_count ?? "NaN"}</p>
+                <p>👀${repo.watchers_count ?? "NaN"}</p>
                 <p class="linguagem">👨‍🏫${repoLanguage}</p>
             </span></a></li>`
         });
@@ -50,7 +50,8 @@ const screen = {
         });
 
         if(user.events.length > 0) {
-            this.userProfile.innerHTML += `<div class="events section">
+            this.userProfile.innerHTML += 
+            `<div class="events section">
                 <h2>Eventos</h2>
                 <ul>${eventsItems}</ul>
             </div>`;

@@ -152,6 +152,7 @@ main {
 .container .profile-data .repositories ul li .stats{
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .container .profile-data .repositories ul li .stats p{
